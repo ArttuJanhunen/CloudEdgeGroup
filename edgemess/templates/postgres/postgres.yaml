@@ -19,8 +19,9 @@ spec:
       - name: mess-postgres
         image: postgres:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080
           name: root-http
         env:
           - name: POSTGRES_PASSWORD
             value: password
+        

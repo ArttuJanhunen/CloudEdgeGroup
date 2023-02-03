@@ -6,19 +6,10 @@ metadata:
     family: mess
   name: mess-redis-service
 spec:
-  # allocateLoadBalancerNodePorts: false
-  externalTrafficPolicy: Cluster
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
   ports:
-  - port: 8000
+  - port: 6379
     protocol: TCP
-    targetPort: 80
+    targetPort: 6379
   selector:
     app: redis
-  sessionAffinity: None
   type: NodePort
-status:
-  loadBalancer: {}

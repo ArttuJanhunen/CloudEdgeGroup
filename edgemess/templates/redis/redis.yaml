@@ -19,5 +19,6 @@ spec:
       - name: mess-redis
         image: redis:latest
         ports:
-        - containerPort: 80
+        - containerPort: 6379
           name: root-http
+        
