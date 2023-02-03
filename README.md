@@ -12,7 +12,7 @@ Arttu Janhunen
 
 * Install minikube to your machine
 * Install kubectl if not included in minikube installation
-* run `minikube addons enable ingress`
+* run `minikube addons enable ingress` and `minikube start`
 * Docker (duh)
 * Helm
 
