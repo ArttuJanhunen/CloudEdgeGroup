@@ -15,7 +15,7 @@ Arttu Janhunen
 * Docker (duh)
 * Helm
 
-####
+#### Quick start
 
 * Run `helm install <desired deployment name> ./edgemess`
 * Run `minikube ip` -> this will be the ip where your deployment is visible
