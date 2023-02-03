@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mess-redis
+  labels:
+    app: redis
+    family: mess
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: mess-redis
+        image: redis:latest
+        ports:
+        - containerPort: 80
+          name: root-http

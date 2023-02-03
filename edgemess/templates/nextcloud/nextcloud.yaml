@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mess-nextcloud
+  labels:
+    app: nextcloud
+    family: mess
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextcloud
+  template:
+    metadata:
+      labels:
+        app: nextcloud
+    spec:
+      containers:
+      - name: mess-nextcloud
+        image: nextcloud:latest
+        ports:
+        - containerPort: 80
+          name: root-http
