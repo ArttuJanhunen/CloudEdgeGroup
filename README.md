@@ -1,8 +1,9 @@
-# Cloud and edge -project work
+# Cloud and edge - project work
 
 ## Authors
 
 Heikki Pulli
+
 Arttu Janhunen
 
 ### For fellow developers
