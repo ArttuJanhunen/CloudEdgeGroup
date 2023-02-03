@@ -15,12 +15,12 @@ Arttu Janhunen
 * run `minikube addons enable ingress` and `minikube start`
 * Docker (duh)
 * Helm
+* Kube Lens helps a lot with visualizing your deployment. Lens is free for students & small businesses. See https://k8slens.dev/ 
 
 #### Quick start
 
 * Run `helm install <desired deployment name> ./edgemess`
 * Run `minikube ip` -> this will be the ip where your deployment is visible
-* You should be able to access your deployment in minikube ip, root should show 404 by NginX.
-* '/keycloak' as path in the browser should show keycloak frontpage, add another '/' to fetch media
-* '/nextcloud' as path in browser should show nextcloud frontpage
-* Links should cause 404 by NginX, as redirecting by ingress fails
+* You should be able to access your deployment in minikube ip
+* `<minikube ip>/` as path in the browser should show keycloak frontpage, add another '/' to fetch media
+* `<minikube ip>/nextcloud` as path in browser should show nextcloud frontpage
