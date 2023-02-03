@@ -1,35 +1,34 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress
+  name: nextcloud-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$3
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
+  ingressClassName: nginx
   rules:
   - http: 
       paths:
-      - path: /(nextcloud)(/|$)(.*)
+      - path: /nextcloud(/|$)(.*)
         pathType: Prefix
         backend:
           service:
             name: mess-nextcloud-service
             port:
               number: 80
-      - path: /(redis)(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: mess-redis-service
-            port:
-              number: 6379
-      - path: /(postgres)(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: mess-postgres-service
-            port:
-              number: 8080
-      - path: /(keycloak)(/|$)(.*)
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: keycloak-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - http: 
+      paths:
+      - path: /
         pathType: Prefix
         backend:
           service:
