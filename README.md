@@ -3,3 +3,4 @@
 ## Authors
 
 Heikki Pulli
+Arttu Janhunen
