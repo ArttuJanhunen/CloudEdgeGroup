@@ -20,6 +20,7 @@ Arttu Janhunen
 #### Quick start
 
 * Run `helm install <desired deployment name> ./edgemess`
+* Or (if you aren't using helm), run the bash-script ./edgemess/nohelmstart.sh
 * Run `minikube ip` -> this will be the ip where your deployment is visible
 * You should be able to access your deployment in minikube ip
 * `<minikube ip>/` as path in the browser should show keycloak frontpage, add another '/' to fetch media
