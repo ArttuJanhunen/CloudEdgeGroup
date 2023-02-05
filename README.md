@@ -6,6 +6,8 @@ Heikki Pulli
 
 Arttu Janhunen
 
+Joel Sokkanen
+
 ### For fellow developers
 
 #### Prequisities
@@ -23,6 +25,6 @@ Arttu Janhunen
 * Or (if you aren't using helm), run the bash-script ./edgemess/nohelmstart.sh
 * Run `minikube ip` -> this will be the ip where your deployment is visible
 * You should be able to access your deployment in minikube ip
-* Wait for the keycloak to start. This takes approximately 5 minutes.
+* Wait for the keycloak to start. This takes up to 5 minutes.
 * `<minikube ip>/keycloak` as path in the browser should show keycloak frontpage.
 * `<minikube ip>/nextcloud` as path in browser should show nextcloud frontpage
