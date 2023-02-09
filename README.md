@@ -34,7 +34,7 @@ Jan Rundt
 #### Run kube-monkey
 
 * kube-monkey is a chaos engineering-tool that randomly shuts down pods
-* Start by running the bash-script ./kubemonkey/monkey_around.sh
+* Start by running the bash-script `./kubemonkey/monkey_around.sh`
 * Enjoy the logs by running the command: `kubectl logs -f deployment.apps/kube-monkey --namespace=kube-system`
 * Kill the monkey with: `kubectl delete kube-monkey`
 * Please note: kube-monkey will only kill apps that have opted in to be terminated. You need to add kube-monkey-labels to the relevant .yaml-files, see an example [here](https://github.com/ArttuJanhunen/CloudEdgeGroup/blob/master/edgemess/templates/nextcloud/nextcloud.yaml) or instructions [here](https://github.com/asobti/kube-monkey#opting-in-to-chaos).
