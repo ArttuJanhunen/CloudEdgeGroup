@@ -1,7 +1,10 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: postgres
+  name: mess-postgres
+  labels:
+    family: mess
+    app: postgres
 spec:
   serviceName: mess-postgres-service
   replicas: 3
