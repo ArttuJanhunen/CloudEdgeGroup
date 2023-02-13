@@ -29,6 +29,8 @@ spec:
       - name: mess-keycloak
         image: quay.io/keycloak/keycloak:latest
         args: ["start-dev"]
+        # Debugging purpose sleep script
+        #command: ["/bin/bash", "-c", "sleep 36000"]
         env:
         - name: KEYCLOAK_ADMIN
           value: "admin"
