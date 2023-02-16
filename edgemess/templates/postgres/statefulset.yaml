@@ -18,9 +18,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:14
-          # This forces the postgres user into use,
-          # when running commands from yaml instead of docker image
+          image: postgres:13
           securityContext:
             runAsUser: 999
           envFrom:
@@ -28,16 +26,15 @@ spec:
               name: postgres-config
           - secretRef:
               name: postgres-secret
+          env:
+          - name: PGDATA
+            value: /var/lib/postgresql/data/mess/
           ports:
             - name: web
               containerPort: 5432
           volumeMounts:
             - name: data
               mountPath: /var/lib/postgresql/data
-              subPath: postgres
-          command: ["postgres"]
-          # Command in progress to create password for users
-          #command: ["postgres", "psql", "-c", "\"ALTER USER postgres PASSWORD '$(POSTGRES_PASSWORD)';\""]
   volumeClaimTemplates:
     - metadata:
         name: data

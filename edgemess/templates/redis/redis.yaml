@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: mess-redis
-        image: redis:latest
+        image: redis:7
         ports:
         - containerPort: 6379
           name: root-http
