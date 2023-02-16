@@ -57,6 +57,8 @@ spec:
               value: Possu123!
             - name: MYSQL_HOST
               value: "mariadb-service:3306"
+            - name: NEXTCLOUD_TRUSTED_DOMAINS
+              value: "localhost"
           ports:
             - containerPort: 80
               name: root-http
