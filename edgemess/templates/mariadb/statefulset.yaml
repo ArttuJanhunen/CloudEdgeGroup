@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: mariadb
-        image: mariadb
+        image: bitnami/mariadb:10.9.5
         ports:
         - containerPort: 3306
           name: mariadb-port
@@ -25,15 +25,23 @@ spec:
             secretKeyRef:
               name: mariadb-secret
               key: mariadb-root-password
+        - name: MARIADB_USER
+          valueFrom:
+            secretKeyRef:
+              name: mariadb-secret
+              key: username
+        - name: MARIADB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mariadb-secret
+              key: password
+        - name: ALLOW_EMPTY_PASSWORD
+          value: "yes"
+        - name: MARIADB_DATABASE
+          value: "nextcloud"
         volumeMounts:
         - name: datadir
           mountPath: /var/lib/mysql/
-        - name: maria-init
-          mountPath: /docker-entrypoint-initdb.d
-      volumes:
-        - name: maria-init
-          configMap:
-            name: maria-init-config
   volumeClaimTemplates:
   - metadata:
       name: datadir
