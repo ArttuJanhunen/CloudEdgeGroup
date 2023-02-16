@@ -29,7 +29,7 @@ Jan Rundt
 * You should be able to access your deployment in minikube ip
 * Wait for the keycloak to start. This takes up to 5 minutes.
 * `<minikube ip>/keycloak` as path in the browser should show keycloak frontpage.
-* `<minikube ip>/nextcloud` as path in browser should show nextcloud frontpage
+* `<minikube ip>/` as path in browser should show nextcloud frontpage
 
 #### Run kube-monkey
 
