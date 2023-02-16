@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: maria-init-config
+data:
+  initdb.sql: |
+    CREATE DATABASE IF NOT EXISTS nextcloud;
+    USE nextcloud;
+    CREATE USER 'oc_admin'@'%' IDENTIFIED BY PASSWORD "Possu123";
+    GRANT ALL PRIVILEGES ON *.* TO 'oc_admin'@'%' IDENTIFIED BY 'Possu123!' WITH GRANT OPTION;
+    FLUSH PRIVILEGES;

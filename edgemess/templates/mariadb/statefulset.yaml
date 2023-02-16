@@ -25,11 +25,15 @@ spec:
             secretKeyRef:
               name: mariadb-secret
               key: mariadb-root-password
-        - name: MARIADB_ROOT_USER
-          value: "oc_admin'@'%"
         volumeMounts:
         - name: datadir
           mountPath: /var/lib/mysql/
+        - name: maria-init
+          mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: maria-init
+          configMap:
+            name: maria-init-config
   volumeClaimTemplates:
   - metadata:
       name: datadir
