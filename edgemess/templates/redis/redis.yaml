@@ -7,7 +7,7 @@ metadata:
     family: mess
     kube-monkey/enabled: enable
     kube-monkey/identifier: redis
-    kube-monkey/mtbf: "3"
+    kube-monkey/mtbf: "1"
     kube-monkey/kill-mode: "fixed"
     kube-monkey/kill-value: '1'
 spec:
@@ -21,7 +21,7 @@ spec:
         app: redis
         kube-monkey/enabled: enable
         kube-monkey/identifier: redis
-        kube-monkey/mtbf: "3"
+        kube-monkey/mtbf: "1"
         kube-monkey/kill-mode: "fixed"
         kube-monkey/kill-value: '1'
     spec:

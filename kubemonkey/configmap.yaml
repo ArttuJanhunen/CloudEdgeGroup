@@ -16,7 +16,7 @@ data:
     time_zone = "Europe/Helsinki"
     graceperiod_sec= 10
     [debug]
-    enabled= true
+    enabled= false
     schedule_immediate_kill= true
     [notifications]
       enabled = false

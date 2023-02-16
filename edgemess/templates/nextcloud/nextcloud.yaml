@@ -7,9 +7,9 @@ metadata:
     family: mess
     kube-monkey/enabled: enabled
     kube-monkey/identifier: nextcloud
+    kube-monkey/mtbf: "1"
     kube-monkey/kill-mode: "fixed"
     kube-monkey/kill-value: "1"
-    kube-monkey/mtbf: "3"
 spec:
   replicas: 2
   selector:
@@ -21,9 +21,9 @@ spec:
         app: nextcloud
         kube-monkey/enabled: enabled
         kube-monkey/identifier: nextcloud
+        kube-moneky/mtbf: "1"
         kube-monkey/kill-mode: "fixed"
         kube-monkey/kill-value: "1"
-        kube-monkey/mtbf: "3"
     spec:
       containers:
         - name: mess-nextcloud

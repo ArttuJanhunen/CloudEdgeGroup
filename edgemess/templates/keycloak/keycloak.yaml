@@ -7,7 +7,7 @@ metadata:
     family: mess
     kube-monkey/enabled: enabled
     kube-monkey/identifier: keycloak
-    kube-monkey/mtbf: "3"
+    kube-monkey/mtbf: "1"
     kube-monkey/kill-mode: "fixed"
     kube-monkey/kill-value: '1'
 spec:
@@ -21,7 +21,7 @@ spec:
         app: keycloak
         kube-monkey/enabled: enabled
         kube-monkey/identifier: keycloak
-        kube-monkey/mtbf: "3"
+        kube-monkey/mtbf: "1"
         kube-monkey/kill-mode: "fixed"
         kube-monkey/kill-value: '1'
     spec:
