@@ -39,3 +39,21 @@ Jan Rundt
 * Enjoy the logs by running the command: `kubectl logs -f deployment.apps/kube-monkey --namespace=kube-system`
 * Kill the monkey with: `kubectl delete -f kubemonkey/deployment.yaml`
 * Please note: kube-monkey will only kill apps that have opted in to be terminated. You need to add kube-monkey-labels to the relevant .yaml-files, see instructions [here](https://github.com/asobti/kube-monkey#opting-in-to-chaos)
+
+#### Getting rid of "untrusted domains" -error with NextCloud
+1. Add your minikube ip to the `NEXTCLOUD_TRUSTED_DOMAINS` environment variable (space separated list). If you're lucky, this might work. 
+
+### The hard way
+1. Exec to the nextcloud pod's Bash (Lens or kubectl exec..)
+2. `apt-get update && apt-get upgrade && apt-get install -y nano`
+3. Go to `./config` -> `nano config.php`
+4. Edit the `trusted_domains` -array by appending your minikube ip to the list
+```php
+    'trusted_domains' => 
+    array (
+        0 => 'localhost',
+        1 => '192.168.1.1',
+        2 => '192.168.49.2'
+    ),
+```
+5. The list is read with every request, so save and reload your page.

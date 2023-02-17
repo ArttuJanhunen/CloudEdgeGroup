@@ -58,7 +58,7 @@ spec:
             - name: MYSQL_HOST
               value: "mariadb-service:3306"
             - name: NEXTCLOUD_TRUSTED_DOMAINS
-              value: "localhost"
+              value: "localhost 192.168.49.2"
           ports:
             - containerPort: 80
               name: root-http
