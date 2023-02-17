@@ -42,6 +42,12 @@ spec:
         volumeMounts:
         - name: datadir
           mountPath: /var/lib/mysql/
+        - name: maria-initdb
+          mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: maria-initdb
+          configMap:
+            name: maria-init-config
   volumeClaimTemplates:
   - metadata:
       name: datadir

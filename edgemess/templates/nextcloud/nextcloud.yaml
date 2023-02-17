@@ -43,12 +43,6 @@ spec:
               value: "Possu123!"
             - name: LOGLEVEL
               value: "0"
-            - name: REDIS_HOST
-              value: mess-redis-service 
-            - name: REDIS_HOST_PORT
-              value: "6379"
-            - name: REDIS_HOST_PASSWORD
-              value: ""
             - name: MYSQL_DATABASE
               value: nextcloud
             - name: MYSQL_USER
