@@ -8,6 +8,7 @@ metadata:
 data:
   config.toml: |
     [kubemonkey]
+    dry_run = false
     run_hour = 12
     start_hour = 13
     end_hour = 14
