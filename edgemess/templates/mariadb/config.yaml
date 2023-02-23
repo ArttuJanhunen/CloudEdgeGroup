@@ -6,5 +6,5 @@ data:
   initdb.sql: |
     CREATE DATABASE IF NOT EXISTS nextcloud;
     CREATE USER 'oc_admin'@'%' IDENTIFIED BY 'Possu123!';
-    GRANT ALL PRIVILEGES ON nextcloud.* TO 'oc_admin'@'%' IDENTIFIED BY 'Possu123!';
+    GRANT ALL PRIVILEGES ON `%`.* TO 'oc_admin%'@'%' IDENTIFIED BY 'Possu123!' WITH GRANT OPTION;
     FLUSH PRIVILEGES;
