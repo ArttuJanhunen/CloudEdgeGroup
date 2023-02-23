@@ -4,7 +4,7 @@ metadata:
   name: mariadb-sts
 spec:
   serviceName: "mariadb-service"
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: mariadb
@@ -14,45 +14,45 @@ spec:
         app: mariadb
     spec:
       containers:
-      - name: mariadb
-        image: bitnami/mariadb:10.9.5
-        ports:
-        - containerPort: 3306
-          name: mariadb-port
-        env:
-        - name: MARIADB_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mariadb-secret
-              key: mariadb-root-password
-        - name: MARIADB_USER
-          valueFrom:
-            secretKeyRef:
-              name: mariadb-secret
-              key: username
-        - name: MARIADB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mariadb-secret
-              key: password
-        - name: ALLOW_EMPTY_PASSWORD
-          value: "yes"
-        - name: MARIADB_DATABASE
-          value: "nextcloud"
-        volumeMounts:
-        - name: datadir
-          mountPath: /var/lib/mysql/
-        - name: maria-initdb
-          mountPath: /docker-entrypoint-initdb.d
+        - name: mariadb
+          image: bitnami/mariadb:10.9.5
+          ports:
+            - containerPort: 3306
+              name: mariadb-port
+          env:
+            - name: MARIADB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: mariadb-root-password
+            - name: MARIADB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: username
+            - name: MARIADB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: password
+            - name: ALLOW_EMPTY_PASSWORD
+              value: "yes"
+            - name: MARIADB_DATABASE
+              value: "nextcloud"
+          volumeMounts:
+            - name: datadir
+              mountPath: /var/lib/mysql/
+            - name: maria-initdb
+              mountPath: /docker-entrypoint-initdb.d
       volumes:
         - name: maria-initdb
           configMap:
             name: maria-init-config
   volumeClaimTemplates:
-  - metadata:
-      name: datadir
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 300M
+    - metadata:
+        name: datadir
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 300M
