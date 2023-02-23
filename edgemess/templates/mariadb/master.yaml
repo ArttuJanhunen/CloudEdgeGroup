@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb-master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mariadb-master
+  template:
+    metadata:
+      labels:
+        app: mariadb-master
+    spec:
+      containers:
+      - name: mariadb-master
+        image: bitnami/mariadb:10.9.5
+        ports:
+        - containerPort: 3306
+          name: mariadb-master
+        env:
+        - name: MARIADB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mariadb-secret
+              key: mariadb-root-password
+        - name: MARIADB_USER
+          valueFrom:
+            secretKeyRef:
+              name: mariadb-secret
+              key: username
+        - name: MARIADB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mariadb-secret
+              key: password
+        - name: MARIADB_DATABASE
+          value: "nextcloud"
+        - name: MARIADB_REPLICATION_MODE
+          value: master
+        - name: MARIADB_REPLICATION_USER
+          value: replicator
+        - name: MARIADB_REPLICATION_PASSWORD
+          value: pleaseReplicate
+        volumeMounts:
+        - name: datadir
+          mountPath: /var/lib/mysql/
+        - name: maria-initdb
+          mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: maria-initdb
+          configMap:
+            name: maria-init-config
+        - name: datadir
+          persistentVolumeClaim:
+            claimName: master-datadir
