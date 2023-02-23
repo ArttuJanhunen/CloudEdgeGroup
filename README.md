@@ -34,6 +34,11 @@ Kristian Krok
 - `<minikube ip>/keycloak` as path in the browser should show keycloak frontpage.
 - `<minikube ip>/` as path in browser should show Nextcloud frontpage
 
+#### Here stops the Quick start
+
+Currently the Nextcloud <-> Keycloak setup is not automatic.
+Follow the steps in [Nextcloud keycloak setup](nextcloud-keycloak-setup.md)
+
 ### Run kube-monkey
 
 - kube-monkey is a chaos engineering-tool that randomly shuts down pods
