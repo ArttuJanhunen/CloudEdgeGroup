@@ -5,7 +5,7 @@ import numpy as np
 cpu_use = []
 mem_use = []
 
-#Measuring the cpu and memory-utilization every hundreth of a second for 90 seconds
+#Measuring the cpu and memory-utilization every millisecond for 90 seconds
 for i in range(120000):
    cpu_use.append(psutil.cpu_percent())
    mem_use.append(psutil.virtual_memory().percent)
