@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: mariadb-service
   labels:
-    app: mariadb-master
+    app: mariadb
 spec:
   ports:
-  - port: 3306
-    name: mariadb-port
+    - port: 3306
+      name: mariadb-port
   clusterIP: None
   selector:
-    app: mariadb-master
+    app: mariadb
