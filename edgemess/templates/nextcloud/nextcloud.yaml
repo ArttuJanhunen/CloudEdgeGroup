@@ -53,6 +53,8 @@ spec:
               value: "mariadb-service:3306"
             - name: NEXTCLOUD_TRUSTED_DOMAINS
               value: "localhost 192.168.49.2"
+            - name: REDIS_HOST
+              value: mess-redis-service
           ports:
             - containerPort: 80
               name: root-http
